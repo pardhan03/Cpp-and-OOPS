@@ -14,24 +14,18 @@ class Complex{
         //     cout<<"\n"<<a<<"\n"<<b<<endl;
         // }
         void showData();
+
+        Complex add(Complex c){
+            Complex temp;
+            temp.a=a+c.a;
+            temp.b=b+c.b;
+            return temp;
+        }
 };
 
 // Complex:: -> memebership label
 void Complex::showData(){
     cout<<"\n"<<a<<"\n"<<b<<endl;
-}
-
-void staticMemFun(){
-    int o; 
-    // if we not initialize so its default will be a garbage value
-    // its lifetime it state when fun start execute and remain till its end of execution
-
-    static int p;
-    // if not initialize it default value will be 0;
-    // its lifetime is equal to life of a program
-
-    o++;
-    p++;
 }
 
 
@@ -41,16 +35,21 @@ int main(){
     // Complex can be refereed as Data type and c1 is variable
     // but here we call Complex as class and c1 as object
 
-    Complex C1;
+    Complex C1, C2, C3;
+
+    // C1.setData(3,4);
+    // C1.showData();
 
     C1.setData(3,4);
+    C2.setData(5,6);
+
+    C3=C1.add(C2);
+
     C1.showData();
+    C2.showData();
+    C3.showData();
 
-    staticMemFun();
-    staticMemFun();
-
-    //result we get o=1 both time because when one function exection it is create again as a new variable
-    //but in the case of static memeber function we get 2 because it doesn't remove from the memory.
+    // C3=C1+C2 operator is not defined for type of complex
 
     return 0;
 }

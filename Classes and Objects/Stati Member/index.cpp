@@ -12,7 +12,27 @@ class Item{
 // without defining this we get error
 int Item::k=5;
 
+void staticMemFun(){
+    int o; 
+    // if we not initialize so its default will be a garbage value
+    // its lifetime it state when fun start execute and remain till its end of execution
+
+    static int p;
+    // if not initialize it default value will be 0;
+    // its lifetime is equal to life of a program
+
+    o++;
+    p++;
+}
+
+
 int main(){
+
+    staticMemFun();
+    staticMemFun();
+
+    //result we get o=1 both time because when one function exection it is create again as a new variable
+    //but in the case of static memeber function we get 2 because it doesn't remove from the memory.
 
     Item i1, i2;
     i1.a=5;
