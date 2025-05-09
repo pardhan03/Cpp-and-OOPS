@@ -27,6 +27,8 @@ class Complex{
             cout<<"\n"<<a<<"\n"<<b;
             cout<<endl;
         }
+
+        ~Complex();
 };
 
 int main(){
