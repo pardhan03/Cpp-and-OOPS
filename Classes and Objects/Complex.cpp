@@ -9,11 +9,31 @@ class Complex{
             a=x;
             b=y;
         };
-
-        void showData(){
-            cout<<"\n"<<a<<"\n"<<b<<endl;
-        }
+        // by default here it is a inline function
+        // void showData(){
+        //     cout<<"\n"<<a<<"\n"<<b<<endl;
+        // }
+        void showData();
 };
+
+// Complex:: -> memebership label
+void Complex::showData(){
+    cout<<"\n"<<a<<"\n"<<b<<endl;
+}
+
+void staticMemFun(){
+    int o; 
+    // if we not initialize so its default will be a garbage value
+    // its lifetime it state when fun start execute and remain till its end of execution
+
+    static int p;
+    // if not initialize it default value will be 0;
+    // its lifetime is equal to life of a program
+
+    o++;
+    p++;
+}
+
 
 int main(){
 
@@ -25,6 +45,12 @@ int main(){
 
     C1.setData(3,4);
     C1.showData();
+
+    staticMemFun();
+    staticMemFun();
+
+    //result we get o=1 both time because when one function exection it is create again as a new variable
+    //but in the case of static memeber function we get 2 because it doesn't remove from the memory.
 
     return 0;
 }
