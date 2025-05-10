@@ -28,8 +28,26 @@ public:
     friend void func1(Complex);
 };
 
+// forward decalaration of class b 
+// so that it will available for friend function of class a
+class B;
+
+class A{
+    friend void f1(A,B);
+};
+
+class B{
+    friend void f1(A,B);
+};
+
+void f1(A o1, B o2)
+{
+  cout<<"void function"<<endl;
+}
+
 void func1(Complex i){
     cout<<"Printing inside friend function";
+
     cout << "\n"<<i.a << "\n" <<i.b << endl;
 }
 
